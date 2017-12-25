@@ -8,19 +8,51 @@
             <h2 class="subtitle">
                 Nuxt.js project
             </h2>
+            <h2 class="subtitle">
+                {{999 + data1}}
+            </h2>
             <div class="links">
                 <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
                 <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
             </div>
         </div>
+        <el-table :data="docs" style="width: 100%" @row-click="rowClick">
+            <el-table-column prop="title" label="标题" width="180">
+            </el-table-column>
+            <el-table-column prop="author.loginname" label="作者" width="180">
+            </el-table-column>
+        </el-table>
+        <el-button>dssssss</el-button>
     </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import api from '~/api'
 export default {
+    data() {
+        return {}
+    },
+    async asyncData() {
+        const obj = await api.get('/topics', {
+            params: {
+                limit: 10,
+                page: 1
+            }
+        })
+        const data1 = obj.success
+        return {
+            data1,
+            docs: obj.data
+        }
+    },
     components: {
         Logo
+    },
+    methods: {
+        rowClick(row) {
+            this.$router.push(`/detail/${row.id}`)
+        }
     }
 }
 </script>

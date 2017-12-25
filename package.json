@@ -13,10 +13,16 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0-rc11"
+    "axios": "^0.17.1",
+    "element-ui": "^2.0.9",
+    "nuxt": "^1.0.0-gh-447b314"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-plugin-component": "^1.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
