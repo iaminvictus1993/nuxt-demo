@@ -22,13 +22,14 @@
             <el-table-column prop="author.loginname" label="作者" width="180">
             </el-table-column>
         </el-table>
-        <el-button>dssssss</el-button>
+        <el-button @click="randomColor">dssssss</el-button>
     </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
 import api from '~/api'
+import '~/assets/theme.less'
 export default {
     data() {
         return {}
@@ -52,12 +53,15 @@ export default {
     methods: {
         rowClick(row) {
             this.$router.push(`/detail/${row.id}`)
+        },
+        randomColor() {
+            document.body.className = 'style' + Math.floor(Math.random() * 3)
         }
     }
 }
 </script>
 
-<style>
+<style lang="less">
 .container {
     min-height: 100vh;
     display: flex;
