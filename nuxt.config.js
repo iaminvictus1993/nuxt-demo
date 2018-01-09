@@ -60,11 +60,5 @@ module.exports = {
         {
             src: '~plugins/element-ui'
         }
-    ],
-    config: {
-        nuxt: {
-            host: '0.0.0.0',
-            port: 3000
-        }
-    }
+    ]
 }
